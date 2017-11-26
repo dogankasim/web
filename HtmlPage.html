@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Haber Portalı</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+           
+            <div class="navbar-header">
+            
+                <a class="navbar-brand" href="#" style="background-color:blue">Doğru Haber</a>
+            </div>
+
+        
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" >SON DAKİKA <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Manşetler</a></li>
+                    <li><a href="#">Magazin</a></li>
+                    <li><a href="#">Spor</a></li>
+                    <li><a href="#">Dünya</a></li>
+                    <li><a href="#">Ekonomi</a></li>
+                    <li class="dropdown">
+                       
+                       
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">İletişim</a></li>
+                    
+                      
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <center> <img src="screenshot_9.png" alt="Hava Limanında Sıcak Saatler" /></center>
+    <center> <h1>Atatürk Havalimanı'nda sıcak saatler</h1></center>
+    <br />
+    <h2>İstanbul Atatürk Havalimanı Dış Hatlar gelişte bulunan sahipsiz şüpheli bir valiz polisi alarma geçirdi. Bomba uzman ekiplerinin kontrol ettiği paket boş çıktı.
+</h2>
+    <br />
+    <h3>İstanbul Atatürk Havalimanı Dış Hatlar gelişte bulunan şüpheli bir paket polisi alarma geçirdi. Çevre güvenliği alan polis ekipleri olay yerine bomba uzman ekipleri çağırdı.
+
+Özel giyimli Bomba İmha Uzmanı ekiplerin, fünyeyle kontrollü şekilde patlattığı valizde herhangi bir şüpheli duruma rastlanmadı.</h3>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <img src="screenshot_1.png" alt="Güncel Haber" />
+    <img src="screenshot_2.png" alt="Bunlarda İlginizi Çekebilir" class="pull-right" />
+    <div class="container" style="margin-top:150px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Yorum Ekle</h1>
+                <label>Adı Soyadı</label>
+                <input type="text" id="txtAdsoyad" class="form-control">
+                <label>Yorum</label>
+                <input type="text" id="txtyorum" class="form-control"> 
+                <br>
+                <button id="btnKaydet" class="btn btn-primary">Kaydet</button>
+                <hr>
+                <div id="sonuc"></div>
+
+            </div>
+            <div class="col-md-8">
+                <h1>Kayıtlar</h1>
+                <table class="table table-hover" id="tbKayitlar">
+                    <tr class="bg-info">
+
+                        <td>Adı Soyadı</td>
+                        <td>Yorum</td>
+                        <td>Sil</td>
+                    </tr>
+                    <tr>
+
+                        <td>Ali</td>
+                        <td>Haber Yayıncısını Beğendim</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Veli</td>
+                        <td>Haberi Beğenmedim</td>
+                        <td>
+                            <button class="btn btn-danger sil">Sil</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $("#btnKaydet").click(function () {
+                var adsoyad = $("#txtAdsoyad").val();
+                var yorum = $("#txtyorum").val();
+                if (adsoyad == "" || yorum == "") {
+                    $("#sonuc").fadeIn(1000);
+                    $("#sonuc").html("Lütfen Tüm Alanları Doldurunuz!");
+                    $("#sonuc").removeClass();
+                    $("#sonuc").addClass("alert alert-danger");
+                    $("#sonuc").fadeOut(3000);
+                    return false;
+                }
+                $("#tbKayitlar").append("<tr><td>" + adsoyad + "</td><td>" + yorum + "</td><td><button class='btn btn-danger sil'>Sil</button></td></tr>");
+            });
+            $(document).on("click", ".sil", function () {
+                var satir = $(this).closest("tr");
+                satir.remove();
+            });
+        });
+    </script>
+</body>
+</html>
